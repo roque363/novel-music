@@ -40,7 +40,7 @@ Framework de css
 npm i -S bulma
 ```
 
-Arreglar el error “Parsing error: unexpected token =”
+### Arreglar el error “Parsing error: unexpected token =”
 
 ``` bash
 # Instala el plugin oficial de ESLint para html
@@ -69,3 +69,5 @@ npm install eslint-plugin-vue
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+Para mas detalles ver el [Curso de VueJS de Platzi](https://platzi.com/clases/vuejs-profesional/).
