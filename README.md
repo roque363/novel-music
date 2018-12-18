@@ -32,6 +32,14 @@ npm install --save-dev eslint-config-standard eslint-plugin-standard eslint-plug
 npm i -D eslint-loader
 ```
 
+### Bulma
+
+Framework de css
+
+``` 
+npm i -S bulma
+```
+
 Arreglar el error “Parsing error: unexpected token =”
 
 ``` bash
