@@ -1,8 +1,17 @@
 @import "~bulma/bulma.sass";
 
 html {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin-top: 15px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50;
+}
+
+.results {
+    margin-top: 30px
 }
