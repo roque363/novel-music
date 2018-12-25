@@ -1,25 +1,38 @@
 <template lang="pug">
   #app
+    nm-header
     section.section
       nav.navbar.has-shadow
-        .container
-          input.input.is-large(type="text", placeholder="Buscar Canciones", v-model="searchQuery")
-          a.button.is-info.is-large(v-on:click="search") Buscar
-          a.button.is-danger.is-large &times;
+        .column
+          .field.has-addons.has-addons-centered
+            .control
+              input.input.is-large(type="text", placeholder="Buscar Canciones", v-model="searchQuery")
+            .control
+              button.button.is-info.is-large(v-on:click="search") Buscar
+            .control
+              button.button.is-danger.is-large &times;
       .container
         p
           small {{ searchMessage }}
 
       .container.results
-        .columns
-          .column(v-for="t in tracks") {{ t.name }} - {{ t.artists[0].name }}
+        .columns.is-mobile.is-multiline
+          .column.is-narrow(v-for="t in tracks")
+            .box
+              p {{ t.name }}
+              p {{ t.artists[0].name }}
+    nm-footer
 </template>
 
 <script>
 import trackService from './services/track.js'
+import NmFooter from './components/layout/Footer.vue'
+import NmHeader from './components/layout/Header.vue'
 
 export default {
   name: 'app',
+
+  components: { NmFooter, NmHeader },
 
   data () {
     return {

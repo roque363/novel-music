@@ -1,10 +1,8 @@
 @import "~bulma/bulma.sass";
 
 html {
-    font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    margin-top: 15px;
 }
 
 body {
@@ -12,6 +10,19 @@ body {
     color: #2c3e50;
 }
 
+.buscar {
+    padding: 15px
+}
+
 .results {
-    margin-top: 30px
+    margin-top: 20px
+}
+
+.move-enter-active, .move-leave-active {
+    transform: translateX(0);
+    transition: all 0.3s linear;
+}
+  
+.move-enter, .move-leave-to {
+    transform: translateX(100%);
 }
