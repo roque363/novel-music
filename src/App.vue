@@ -1,7 +1,8 @@
 <template lang="pug">
   #app
     nm-header
-    section.section
+    nm-loader(v-show="isLoading")
+    section.section(v-show="!isLoading")
       nav.navbar.has-shadow
         .column
           .field.has-addons.has-addons-centered
@@ -16,28 +17,29 @@
           small {{ searchMessage }}
 
       .container.results
-        .columns.is-mobile.is-multiline
-          .column.is-narrow(v-for="t in tracks")
-            .box
-              p {{ t.name }}
-              p {{ t.artists[0].name }}
+        .columns.is-multiline
+          .column.is-one-quarter(v-for="t in tracks")
+            nm-track(v-bind:track="t")
     nm-footer
 </template>
 
 <script>
-import trackService from './services/track.js'
-import NmFooter from './components/layout/Footer.vue'
-import NmHeader from './components/layout/Header.vue'
+import trackService from '@/services/track.js'
+import NmFooter from '@/components/layout/Footer.vue'
+import NmHeader from '@/components/layout/Header.vue'
+import NmTrack from '@/components/Track.vue'
+import NmLoader from '@/components/shared/Loader.vue'
 
 export default {
   name: 'app',
 
-  components: { NmFooter, NmHeader },
+  components: { NmFooter, NmHeader, NmTrack, NmLoader },
 
   data () {
     return {
       searchQuery: '',
-      tracks: []
+      tracks: [],
+      isLoading: false
     }
   },
 
@@ -50,9 +52,11 @@ export default {
   methods: {
     search () {
       if (!this.searchQuery) { return }
+      this.isLoading = true
       trackService.search(this.searchQuery)
         .then(res => {
           this.tracks = res.tracks.items
+          this.isLoading = false
         })
     }
   }
