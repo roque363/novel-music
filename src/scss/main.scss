@@ -26,3 +26,7 @@ body {
 .move-enter, .move-leave-to {
     transform: translateX(100%);
 }
+
+.is-active {
+    border: 3px #23d160 solid;
+}

@@ -12,4 +12,13 @@
       .container.has-text-centered
         h1.title Novel Music
         h2.subtitle Biblioteca de Spotify
+        nm-player
 </template>
+
+<script>
+import NmPlayer from '@/components/Player.vue'
+
+export default {
+  components: { NmPlayer }
+}
+</script>

@@ -17,13 +17,20 @@
         nav.level
           .level-left
             a.left-item
-              span.icon.is-small ▶️
+              span.icon.is-small(v-on:click="selectedTrack") ▶️
 </template>
 
 <script>
 export default {
   props: {
     track: { type: Object, require: true }
+  },
+
+  methods: {
+    selectedTrack () {
+      this.$emit('select', this.track.id)
+      this.$bus.$emit('set-track', this.track)
+    }
   }
 }
 </script>
