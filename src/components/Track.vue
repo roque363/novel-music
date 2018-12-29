@@ -16,7 +16,7 @@
         small {{ track.duration_ms }}
         nav.level
           .level-left
-            a.left-item
+            a.level-item
               span.icon.is-small(v-on:click="selectedTrack") ▶️
 </template>
 

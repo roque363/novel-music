@@ -7,7 +7,8 @@
             .nav-item
               strong 📻 Novel Music
           .nav-right.nav-menu
-
+            router-link.nav-item(:to="{ name: 'search' }") Buscar
+            router-link.nav-item(to="/about") Nosotros
     .hero-body
       .container.has-text-centered
         h1.title Novel Music

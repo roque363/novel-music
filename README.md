@@ -36,8 +36,18 @@ npm i -D eslint-loader
 
 Framework de css
 
-``` 
+``` bash
 npm i -S bulma
+```
+### Vue-Router
+
+Permite trabajar con rutas anidadas, es modulas, permite crear rutas con parametros y permite aplicar transiciones a las rutas
+
+``` bash 
+# Install vue-loader
+npm i -S vue-router
+
+# Despues solo agregar en el archivo routes.js las rutas que se necesiten
 ```
 
 ### Arreglar el error “Parsing error: unexpected token =”
