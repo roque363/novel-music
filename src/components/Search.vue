@@ -4,28 +4,37 @@
       p(slot="body") {{ notification }}
     |
     nm-loader(v-show="isLoading")
+    |
     section.section(v-show="!isLoading")
       nav.navbar
         .column
           .field.has-addons.has-addons-centered
             .control
-              input.input.is-large(type="text", placeholder="Buscar Canciones", v-model="searchQuery")
+              input.input.is-large(
+                type="text",
+                placeholder="Buscar Canciones",
+                v-model="searchQuery",
+                v-on:keyup.enter="search"
+              )
             .control
               button.button.is-info.is-large(v-on:click="search") Buscar
             .control
               button.button.is-danger.is-large &times;
+      |
       .container
         p
           small {{ searchMessage }}
-
+      |
       .container.results
         .columns.is-multiline
           .column.is-one-quarter(v-for="t in tracks")
             nm-track(
+              v-blur="t.preview_url"
               v-bind:class="{ 'is-active': t.id == selectedTrack }",
               v-bind:track="t",
               v-on:select="setSelectedTrack"
             )
+      |
     |
 </template>
 
