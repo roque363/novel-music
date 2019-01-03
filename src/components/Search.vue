@@ -1,9 +1,11 @@
 <template lang="pug">
   main
-    nm-notification(v-show="showNotification", v-bind:isClass= "notificationClass")
-      p(slot="body") {{ notification }}
+    transition(name="move")
+      nm-notification(v-show="showNotification", v-bind:isClass= "notificationClass")
+        p(slot="body") {{ notification }}
     |
-    nm-loader(v-show="isLoading")
+    transition(name="move")
+      nm-loader(v-show="isLoading")
     |
     section.section(v-show="!isLoading")
       nav.navbar

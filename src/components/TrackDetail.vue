@@ -1,16 +1,36 @@
 <template lang="pug">
   .container
     .columns
-      .columns.is-5.is-offset-4
-        nm-track(:track="track")
+      .column.is-3.has-text-centered
+        figure.media-left
+          p.image
+            img(:src="track.album.images[0].url")
+          p
+            a.button.is-link.is-large(@click="selectedTrack")
+              span.icon ▶️
+      .column.is-9
+        .panel
+          .panel-heading
+            h1.title {{ track.name }}
+          .panel-block
+            article.media
+              .media-content
+                .content
+                  ul(v-for="(v, k) in track")
+                    li
+                      strong {{ k }}:&nbsp;
+                      span {{ v }}
+              nav.level
+                .level-left
+                  a.level-item
 </template>
 
 <script>
 import TrackServices from '@/services/track'
-import NmTrack from '@/components/Track.vue'
+import trackMixin from '@/mixins/track'
 
 export default {
-  components: { NmTrack },
+  mixins: [ trackMixin ],
 
   data () {
     return {
