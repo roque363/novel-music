@@ -1,18 +1,17 @@
 <template lang="pug">
-  .container
+  .container(v-if="track && track.id")
     .columns
       .column.is-3.has-text-centered
         figure.media-left
           p.image
             img(:src="track.album.images[0].url")
-          p
+          p.button-bar
             a.button.is-link.is-large(@click="selectedTrack")
               span.icon ▶️
       .column.is-9
         .panel
           .panel-heading
-            h1.title {{ track.name }}
-          .panel-block
+            h1.title {{ trackTitle }}
             article.media
               .media-content
                 .content
@@ -26,26 +25,31 @@
 </template>
 
 <script>
-import TrackServices from '@/services/track'
+import { mapState, mapActions, mapGetters } from 'vuex'
+
 import trackMixin from '@/mixins/track'
 
 export default {
   mixins: [ trackMixin ],
 
-  data () {
-    return {
-      track: {}
-    }
+  computed: {
+    ...mapState(['track']),
+    ...mapGetters(['trackTitle'])
   },
 
   created () {
     const id = this.$route.params.id
 
-    TrackServices.getById(id)
-      .then(res => {
-        console.log(res)
-        this.track = res
-      })
+    if (!this.track || !this.track.id || this.track.id !== id) {
+      this.getTrackById({ id })
+        .then(() => {
+          console.log('Track loaded ...')
+        })
+    }
+  },
+
+  methods: {
+    ...mapActions(['getTrackById'])
   }
 }
 </script>
@@ -53,5 +57,9 @@ export default {
 <style lang="scss" scope>
   .columns {
     margin: 30px;
+  }
+
+  .button-bar {
+    margin-top: 20px;
   }
 </style>
