@@ -1,21 +1,36 @@
 @import "~bulma/bulma.sass";
+@import './scss/flow.scss';
+@import './scss/progress-bar.scss';
+@import './src/scss/player.scss';
 
-html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+html,body {
+    font-family: 'Quicksand', sans-serif;
+    background: #ffffff;
+    width: 100%;
+    height: 100%;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    color: #2c3e50;
+.contenido {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+    ), url('http://localhost:8080/src/assets/img/contenido.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.buscar {
-    padding: 15px
+.buscar { padding: 15px }
+
+.card.radius, img {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: initial;
+    border-radius: 5px;
 }
 
-.results {
-    margin-top: 20px
+.title.no-padding {
+    margin-bottom: 0 !important;
 }
 
 .move-enter-active, .move-leave-active {
@@ -27,6 +42,8 @@ body {
     transform: translateX(100%);
 }
 
-.is-active {
-    border: 3px #23d160 solid;
-}
+.footer { background-color: #fafafa;}
+
+.subtitle, p, strong, .footer p { color: #262636; }
+
+.footer a:hover { color: crimson; }

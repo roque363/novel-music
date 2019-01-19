@@ -1,6 +1,7 @@
 .DS_Store
 node_modules/
-dist/
+# Agregar o Quitar la carpeta dist/ si se necesita o no
+# dist/
 npm-debug.log
 yarn-error.log
 

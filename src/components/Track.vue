@@ -1,34 +1,45 @@
 <template lang="pug">
-  .card(v-if="track && track.album")
+  .card.radius(v-if="track && track.album")
     .card-image
-      figure.image.is-1by1
-        img(v-bind:src="track.album.images[0].url", v-on:click="goToTrack(track.id)")
+      figure.image
+        img(v-bind:src="track.album.images[0].url", alt="Image")
     .card-content
       .media
         .media-left
-          .figure.image.is-48x48
-            img(v-bind:src="track.album.images[0].url")
+          .figure.image.is-64x64
+            img(v-bind:src="track.album.images[1].url", alt="Image")
         .media-content
-          p.title.is-6
+          p.title.is-5.cortar
             strong {{ track.name }}
           p.subtitle.is-6 {{ track.artists[0].name}}
       .content
-        small {{ track.duration_ms | ms-to-mm }}
+        .detail
+          small Duración: {{ track.duration_ms | ms-to-mm }}
+          span.tag.is-danger(v-if="track.explicit === true")
+            | Contenido explícito
         nav.level
           .level-left
             .buttons
-              button.level-item.button.is-link(@click="selectedTrack")
-                span.icon.is-small ▶️
+              a.level-item.button.is-link(@click="selectedTrack")
+                span.icon
+                  i.fas.fa-play
+                span Demo
               |
-              button.level-item.button.is-warning(v-on:click="goToTrack(track.id)")
-                span.icon.is-small ➕
+              a.level-item.button.is-warning(v-on:click="goToTrack(track.id)")
+                span.icon
+                  i.fas.fa-info
+                span Info
 </template>
 
 <script>
 import trackMixin from '@/mixins/track'
 
+import NmTag from '@/components/shared/Tag.vue'
+
 export default {
   mixins: [ trackMixin ],
+
+  components: { NmTag },
 
   props: {
     track: { type: Object, require: true }
@@ -44,3 +55,19 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .cortar {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  .detail {
+    margin-bottom: 10px;
+  }
+  .tag {
+    margin-left: 10px;
+  }
+</style>

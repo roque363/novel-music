@@ -1,0 +1,69 @@
+body {
+    display:flex;
+    flex-direction:column;
+    a {
+        color:inherit;
+        &:not(:hover) {
+            text-decoration:none;
+        }
+    }
+    #link-a-me {
+        position: absolute;
+        bottom:80px;
+        right:20px;
+        height:60px;
+        width:60px;
+        background:url(https://i.imgur.com/xoxkq1r.png);
+        background-size:cover;
+        z-index:1;
+        animation: pop-in 120s ease-out;
+    }
+    .player {
+        z-index:10;
+        background: rgb(255, 255, 255);
+        color:#000;
+        min-height:80px;
+        max-height:80px;
+        margin: 10px;
+        display:flex;
+        flex-direction:row;
+        img {
+            width: 78px;
+            height: 78px;
+            max-height: 6rem;
+            background-size:cover;
+        }
+        .right {
+            flex-grow:1;
+            display:flex;
+            flex-direction:column;
+            .top {
+                flex-grow:1;
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                padding-left:12px;
+                .song {
+                    font-size:1.2em;
+                    font-weight:600;
+                }
+                .muestra{
+                    padding-left: 20px;
+                }
+                audio { //I was being lazy, RIP if you aren't using chrome for style
+                    flex-grow:1;
+                    width: 400px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes pop-in {
+    0%, 95%{
+       transform:translateY(100%);
+    }
+    100%{
+       transform:translateY(0%);
+    }
+}

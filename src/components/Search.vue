@@ -8,34 +8,32 @@
       nm-loader(v-show="isLoading")
     |
     section.section(v-show="!isLoading")
-      nav.navbar
-        .column
-          .field.has-addons.has-addons-centered
-            .control
-              input.input.is-large(
-                type="text",
-                placeholder="Buscar Canciones",
-                v-model="searchQuery",
-                v-on:keyup.enter="search"
-              )
-            .control
-              button.button.is-info.is-large(v-on:click="search") Buscar
-            .control
-              button.button.is-danger.is-large &times;
-      |
+      // START SEARCH
+      .box
+        .field.has-addons
+          .control.is-expanded
+            input.input.is-medium.has-text-centered(
+              type="text",
+              placeholder="» » Buscar Canciones « «",
+              v-model="searchQuery",
+              v-on:keyup.enter="search"
+            )
+          .control
+            a.button.is-info.is-medium(v-on:click="search") Buscar
+      // END SEARCH
       .container
         p
           small {{ searchMessage }}
-      |
-      .container.results
-        .columns.is-multiline
-          .column.is-one-quarter(v-for="t in tracks")
-            nm-track(
-              v-blur="t.preview_url"
-              v-bind:class="{ 'is-active': t.id == selectedTrack }",
-              v-bind:track="t",
-              v-on:select="setSelectedTrack"
-            )
+      // START CARDS
+      .row.columns.is-multiline.results
+        .column.is-one-quarter-desktop.is-half-tablet.is-one-quarter-fullhd(v-for="t in tracks")
+          nm-track(
+            v-blur="t.preview_url"
+            v-bind:class="{ 'is-active': t.id == selectedTrack }",
+            v-bind:track="t",
+            v-on:select="setSelectedTrack"
+          )
+      // END CARDS
       |
     |
 </template>
@@ -114,6 +112,20 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+  .section {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  .is-active {
+      border: 3px #23d160 solid;
+  }
 
+  .results {
+    margin-top: 20px
+  }
+
+  small {
+    color: whitesmoke;
+  }
 </style>
