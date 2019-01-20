@@ -8,7 +8,8 @@ const routes = [
   { path: '/novel-music/', component: Search, name: 'search' },
   { path: '/novel-music/about', component: About, name: 'about' },
   { path: '/novel-music/track/:id', component: TrackDetail, name: 'track' },
-  { path: '*', component: PageNotFound }
+  { path: '/novel-music/404', component: PageNotFound },
+  { path: '*', redirect: '/novel-music/404' }
 ]
 
 export default routes
