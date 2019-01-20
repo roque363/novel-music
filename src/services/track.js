@@ -2,9 +2,12 @@ import novelMusicService from './novel-music'
 
 const trackService = {}
 
-trackService.search = function (q) {
+trackService.search = function (q, offset = 0) {
   const type = 'track'
-  return novelMusicService.get('/search', { params: { q, type } }).then(res => res.data)
+
+  return novelMusicService.get('/search', {
+    params: { q, type, offset }
+  }).then(res => res.data)
 }
 
 trackService.getById = function (id) {
