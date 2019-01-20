@@ -1,11 +1,14 @@
 import Search from '@/components/Search.vue'
 import About from '@/components/About.vue'
 import TrackDetail from '@/components/TrackDetail.vue'
+import PageNotFound from '@/components/PageNotFound.vue'
 
+// Cambiar la rutas dependiendo si es para desarrolo o para produccion
 const routes = [
-  { path: '/', component: Search, name: 'search' },
-  { path: '/about', component: About, name: 'about' },
-  { path: '/track/:id', component: TrackDetail, name: 'track' }
+  { path: '/novel-music/', component: Search, name: 'search' },
+  { path: '/novel-music/about', component: About, name: 'about' },
+  { path: '/novel-music/track/:id', component: TrackDetail, name: 'track' },
+  { path: '*', component: PageNotFound }
 ]
 
 export default routes
