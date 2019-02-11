@@ -17,7 +17,8 @@
             a.navbar-item
               router-link.nav-item(:to="{ name: 'search' }") Buscar
             a.navbar-item
-              router-link.nav-item(to="/novel-music/about") Nosotros
+              router-link.nav-item( :to="{ name: 'about' }" ) Nosotros
+              // router-link.nav-item(to="/novel-music/about") Nosotros
           .navbar-end
             .navbar-item
               a.button.is-link(href="https://github.com/roque363/novel-music")

@@ -11,3 +11,10 @@
           a(href="https://bulma.io/")
             img(src="https://bulma.io/images/made-with-bulma--semiblack.png", alt="Made with Bulma", width="128", height="24")
 </template>
+color: #262636;
+
+<style lang="scss" scoped>
+  a {
+    color: #262636;
+  }
+</style>
