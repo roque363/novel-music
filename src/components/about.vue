@@ -1,4 +1,11 @@
 <template lang="pug">
   .container
-    h1.title Nosotros
+    .box
+      h1.title Nosotros
 </template>
+
+<style lang="scss" scoped>
+  .container {
+    padding-bottom: 25px;
+  }
+</style>

@@ -1,9 +1,9 @@
 <template lang="pug">
   main
     transition(name="move")
-      nm-notification(v-show="showNotification", v-bind:isClass= "notificationClass")
-        p.noti(slot="body") {{ notification }}
-    |
+      // nm-notification(v-show="showNotification", v-bind:isClass= "notificationClass")
+        // p.noti(slot="body") {{ notification }}
+    // |
     transition(name="move")
       nm-loader(v-show="isLoading")
     |
@@ -12,18 +12,19 @@
       .box
         .field.has-addons
           .control.is-expanded
-            input.input.is-medium.has-text-centered(
-              type="text",
-              placeholder="» » Buscar Canciones « «",
-              v-model="searchQuery",
-              v-on:keyup.enter="search"
-            )
+              b-input.has-text-centered(
+                size="is-medium",
+                type="search",
+                placeholder="Buscar Canciones...",
+                icon-pack='fas',
+                icon="search",
+                v-model="searchQuery",
+                v-on:keyup.enter.native="search"
+              )
           .control
             a.button.is-info.is-medium(v-on:click="search") Buscar
       // END SEARCH
-      .container
-        p
-          small {{ searchMessage }}
+      small.search-message {{ searchMessage }}
       // START CARDS
       .row.columns.is-multiline.results
         .column.is-one-quarter-desktop.is-half-tablet.is-one-quarter-fullhd(v-for="t in tracks")
@@ -88,24 +89,39 @@ export default {
 
   watch: {
     showNotification () {
-      if (this.showNotification) {
-        if (this.tracks.length > 0) {
-          this.notificationClass = 'is-success'
-          this.notification = `Se han encontrados: ${this.tracks.length} canciones`
-        } else {
-          if (this.tracks.length === 0) {
-            this.notificationClass = 'is-danger'
-            this.notification = `No se encontraron resultados`
-          } else {
-            this.notificationClass = 'is-danger'
-            this.notification = `Error`
-          }
-        }
-        setTimeout(() => {
-          this.showNotification = false
-        }, 3000)
+      if (this.tracks.length > 0) {
+        // Open Toast
+        this.$toast.open({
+          duration: 4000,
+          message: `Se han encontrados: ${this.tracks.length} canciones`,
+          type: 'is-success'
+        })
+        this.showNotification = false
+      } else if (this.tracks.length === 0) {
+        // Open Snackbar
+        this.$snackbar.open({
+          duration: 4000,
+          message: 'No se encontraron resultados, pruebe otra canción',
+          type: 'is-warning',
+          position: 'is-bottom-left',
+          actionText: 'Ok',
+          indefinite: false
+        })
+        this.showNotification = false
+      } else {
+        // Open Snackbar
+        this.$snackbar.open({
+          duration: 4000,
+          message: 'Se produjo un error inesperado...',
+          type: 'is-danger',
+          position: 'is-bottom-left',
+          actionText: 'Ok',
+          indefinite: false
+        })
+        this.showNotification = false
       }
     },
+
     searchQuery () {
       this.pagination.offset = 0
       this.pagination.hasEnd = false
@@ -168,5 +184,9 @@ export default {
 
   small, .noti {
     color: whitesmoke;
+  }
+
+  .search-message{
+    margin-left: 10px;
   }
 </style>

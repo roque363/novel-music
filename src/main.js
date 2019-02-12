@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
 import VueRouter from 'vue-router'
 import App from '@/App.vue'
 
@@ -10,6 +12,7 @@ import routes from '@/routes'
 
 import EventBus from '@/plugins/event-bus'
 
+Vue.use(Buefy)
 Vue.use(VueRouter)
 Vue.use(EventBus)
 Vue.use(msToMm)

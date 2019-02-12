@@ -6,7 +6,7 @@
         .navbar-brand
           a.navbar-item
             router-link(:to="{ name: 'search' }")
-              | Novel Music
+              strong Novel Music
           a.navbar-burger.burger(role="button", data-target="menuPrincipal")
             span(aria-hidden="true")
             span(aria-hidden="true")
@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  a {
+  a, .fa-search{
     color: #000000;
   }
 
