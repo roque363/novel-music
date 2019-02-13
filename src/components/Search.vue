@@ -1,9 +1,9 @@
 <template lang="pug">
   main
-    transition(name="move")
-      // nm-notification(v-show="showNotification", v-bind:isClass= "notificationClass")
-        // p.noti(slot="body") {{ notification }}
-    // |
+    //- ⚠️ Notificacion Antigua
+    // transition(name="move")
+      nm-notification(v-show="showNotification", v-bind:isClass= "notificationClass")
+        p.noti(slot="body") {{ notification }}
     transition(name="move")
       nm-loader(v-show="isLoading")
     |
@@ -89,36 +89,33 @@ export default {
 
   watch: {
     showNotification () {
-      if (this.tracks.length > 0) {
-        // Open Toast
-        this.$toast.open({
-          duration: 4000,
-          message: `Se han encontrados: ${this.tracks.length} canciones`,
-          type: 'is-success'
-        })
-        this.showNotification = false
-      } else if (this.tracks.length === 0) {
-        // Open Snackbar
-        this.$snackbar.open({
-          duration: 4000,
-          message: 'No se encontraron resultados, pruebe otra canción',
-          type: 'is-warning',
-          position: 'is-bottom-left',
-          actionText: 'Ok',
-          indefinite: false
-        })
-        this.showNotification = false
-      } else {
-        // Open Snackbar
-        this.$snackbar.open({
-          duration: 4000,
-          message: 'Se produjo un error inesperado...',
-          type: 'is-danger',
-          position: 'is-bottom-left',
-          actionText: 'Ok',
-          indefinite: false
-        })
-        this.showNotification = false
+      if (this.showNotification) {
+        if (this.tracks.length > 0) {
+          // Open Toast
+          this.$toast.open({
+            duration: 4000,
+            message: `Se han encontrados: ${this.tracks.length} canciones`,
+            type: 'is-success'
+          })
+        } else if (this.tracks.length === 0) {
+          // Open Toast
+          this.$toast.open({
+            duration: 4000,
+            message: 'No se encontraron resultados, pruebe otra canción',
+            type: 'is-warning'
+          })
+        } else {
+          // Open Snackbar
+          this.$snackbar.open({
+            duration: 4000,
+            message: 'Se produjo un error inesperado...',
+            type: 'is-danger',
+            position: 'is-bottom-left',
+            actionText: 'Ok',
+            indefinite: false
+          })
+        }
+        setTimeout(() => { this.showNotification = false }, 4000)
       }
     },
 

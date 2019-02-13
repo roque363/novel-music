@@ -25,10 +25,11 @@
                   i.fas.fa-play
                 span Demo
               |
-              a.level-item.button.is-warning(v-on:click="goToTrack(track.id)")
-                span.icon
-                  i.fas.fa-info
-                span Info
+              b-tooltip(label="Detalles de la canción", position="is-right")
+                a.level-item.button.is-warning(v-on:click="goToTrack(track.id)")
+                  span.icon
+                    i.fas.fa-info
+                  span Info
 </template>
 
 <script>
