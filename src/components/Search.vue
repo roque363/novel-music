@@ -2,7 +2,7 @@
   main
     //- ⚠️ Notificacion Antigua
     // transition(name="move")
-      nm-notification(v-show="showNotification", v-bind:isClass= "notificationClass")
+      nm-notification(v-show="showNotification", v-bind:isClass="notificationClass")
         p.noti(slot="body") {{ notification }}
     transition(name="move")
       nm-loader(v-show="isLoading")
@@ -38,11 +38,11 @@
       //- ⚠️ Se añade la Paginacion
       .columns(v-show="tracks.length && !pagination.hasEnd")
       .column.has-text-centered
-        button.button(
+        a.button.is-light.is-rounded(
           @click="loadNextPage()",
           :class="{ 'is-loading': pagination.isLoading }",
           :disabled="pagination.isLoading"
-        ) Cargar Mas
+        ) Mostrar más
     |
 </template>
 
