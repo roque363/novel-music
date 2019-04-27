@@ -3,7 +3,7 @@ import About from '@/components/About.vue'
 import TrackDetail from '@/components/TrackDetail.vue'
 import PageNotFound from '@/components/PageNotFound.vue'
 
-// Cambiar la rutas dependiendo si es para desarrolo o para produccion
+// ⚠️ Cambiar la rutas dependiendo si es para desarrolo o para produccion
 const routes = [
   { path: '/novel-music/', component: Search, name: 'search' },
   { path: '/novel-music/about', component: About, name: 'about' },
