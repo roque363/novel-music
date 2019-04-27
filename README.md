@@ -1,7 +1,7 @@
 # Novel Music
 
-> App Diseñada para el curso de Vue.js de Platzi
-![](https://repository-images.githubusercontent.com/162227184/e8f2c080-687b-11e9-8dde-bef9651f8808)
+App Diseñada para el curso de Vue.js de Platzi
+![](https://raw.githubusercontent.com/roque363/novel-music/master/src/assets/img/Banner_Novel_Music.png)
 
 ## Getting Started
 Para poder ejecutar el proyecto en local
