@@ -4,17 +4,31 @@
       .content.has-text-centered
         .container
           a(href="https://github.com/roque363/novel-music")
-            i.fab.fa-github.fa-2x(aria-hidden="true")
-        p with ❤️ by
-          a(href="https://github.com/roque363")  @roque363
+            i.fab.fa-github.fa-2x.git(aria-hidden="true")
+        p.text with ❤️ by
+          a.user(href="https://github.com/roque363")  @roque363
         p
           a(href="https://bulma.io/")
-            img(src="https://bulma.io/images/made-with-bulma--semiblack.png", alt="Made with Bulma", width="128", height="24")
+            img(src="https://bulma.io/images/made-with-bulma--semiblack.png", alt="Made with Bulma", width="148", height="34")
 </template>
-color: #262636;
 
 <style lang="scss" scoped>
-  a {
-    color: #262636;
+  .footer {
+    padding-bottom: 4rem;
+    a {
+      color: black;
+    }
+    .text {
+      font-weight: 500;
+    }
+    .user {
+      font-weight: 600;
+    }
+    .user:hover {
+      color: #283593;
+    }
+    .git:hover {
+      color: #6b6b6b;
+    }
   }
 </style>

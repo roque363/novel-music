@@ -8,8 +8,14 @@
 </template>
 
 <style lang="scss" scoped>
-  h1, .subtitle  {
-    color: whitesmoke;
+  .title {
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .subtitle  {
+    color: white;
+    font-weight: 500;
   }
   .container {
     margin-top: 25px;

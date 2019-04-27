@@ -4,9 +4,8 @@
     nav.navbar.has-shadow(role="navigation" aria-label="main navigation")
       .container
         .navbar-brand
-          a.navbar-item
-            router-link(:to="{ name: 'search' }")
-              strong Novel Music
+          router-link.navbar-item.logo-text(:to="{ name: 'search' }")
+            strong Novel Music
           a.navbar-burger.burger(role="button", data-target="menuPrincipal")
             span(aria-hidden="true")
             span(aria-hidden="true")
@@ -14,17 +13,16 @@
         |
         #menuPrincipal.navbar-menu
           .navbar-start
-            a.navbar-item
-              router-link.nav-item(:to="{ name: 'search' }") Buscar
-            a.navbar-item
-              router-link.nav-item( :to="{ name: 'about' }" ) Nosotros
-              // router-link.nav-item(to="/novel-music/about") Nosotros
+            router-link.navbar-item.spotify-search(:to="{ name: 'search' }")
+              b-icon(pack="fab" icon="spotify")
+              span.text.item-size Buscar
+            router-link.navbar-item.item-size( :to="{ name: 'about' }" ) Nosotros
           .navbar-end
             .navbar-item
               a.button.is-link(href="https://github.com/roque363/novel-music")
                 span.icon
                   i.fab.fa-github
-                span View Source
+                span.item-size View Source
     // END TOP NAV
     section.hero
       .hero-body
@@ -58,11 +56,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  a, .fa-search{
-    color: #000000;
+  .logo-text { font-size: 19px; }
+
+  a, .fa-search{ color: #000000; }
+
+  a:hover { color: #283593; }
+
+  .item-size {
+    font-size: 16px;
+    font-weight: 500;
   }
 
-  .title, .subtitle {
-    color: whitesmoke;
+  .spotify-search {
+    .text { padding-left: 4px; }
+  }
+
+  .spotify-search:hover {
+    color: #1ED761
+  }
+
+  .title {
+    font-size: 38px;
+    font-weight: 600;
+    color: white;
+  }
+
+  .subtitle {
+    color: white;
+    font-weight: 500;
+    font-size: 19px;
   }
 </style>

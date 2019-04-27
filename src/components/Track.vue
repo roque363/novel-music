@@ -65,10 +65,20 @@ export default {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
   }
+  .subtitle {
+    font-weight: 500;
+  }
   .detail {
+    font-weight: 500;
     margin-bottom: 10px;
   }
   .tag {
     margin-left: 10px;
+  }
+
+  .buttons {
+    a {
+      font-weight: 500;
+    }
   }
 </style>

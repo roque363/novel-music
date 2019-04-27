@@ -184,6 +184,7 @@ export default {
   }
 
   .search-message{
+    font-weight: 500;
     margin-left: 10px;
   }
 </style>
