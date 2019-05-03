@@ -29,6 +29,7 @@
         .container.has-text-centered
           .column.is-6.is-offset-3
             h1.title Novel Music
+            h2.subtitle Búsqueda y reproducción de canciones
             h2.subtitle Biblioteca de Spotify
             //nm-player
     // START PLAYER
@@ -84,6 +85,7 @@ export default {
   .subtitle {
     color: white;
     font-weight: 500;
-    font-size: 19px;
+    font-size: 18px;
+    margin-bottom: 0.5rem;
   }
 </style>

@@ -10,7 +10,11 @@
           |  desarrolle esta Página Web para la búsqueda y reproducción de canciones, mediante el uso de la api de Spotify.
           br
           | La diseñe como parte del curso de Vue.js de Platzi. Se uso Eslint, Babel, Bulma, Pug y Vue-router.
-        img(src="https://roque363.github.io/novel-music/src/assets/img/Nove@1x.jpg")
+          br
+          | Para más información de como realizo esta pagina pueden revisar el repositorio de
+          a.repo(href="https://github.com/roque363/novel-music")  GitHub
+          | .
+        img(src="https://roque363.github.io/novel-music/src/assets/img/Nove@1x.jpg" alt="roque363 - logo")
 </template>
 
 <style lang="scss" scoped>
@@ -18,6 +22,10 @@
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 25px;
+  }
+
+  .repo {
+    font-weight: 600;
   }
 
   h3 {

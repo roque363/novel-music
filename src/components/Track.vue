@@ -2,12 +2,12 @@
   .card.radius(v-if="track && track.album")
     .card-image
       figure.image
-        img(v-bind:src="track.album.images[0].url", alt="Image")
+        img(v-bind:src="track.album.images[0].url", alt="Music album")
     .card-content
       .media
         .media-left
           .figure.image.is-64x64
-            img(v-bind:src="track.album.images[1].url", alt="Image")
+            img(v-bind:src="track.album.images[1].url", alt="Music album")
         .media-content
           p.title.is-5.cortar
             strong {{ track.name }}
