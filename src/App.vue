@@ -13,7 +13,14 @@ import NmHeader from '@/components/layout/Header.vue'
 
 export default {
   name: 'app',
-  components: { NmFooter, NmHeader }
+  components: { NmFooter, NmHeader },
+  metaInfo: {
+    title: 'Búsqueda y reproducción de canciones',
+    titleTemplate: '%s | Novel Music',
+    htmlAttrs: {
+      lang: 'es'
+    }
+  }
 }
 </script>
 

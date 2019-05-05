@@ -61,14 +61,19 @@ export default {
     }
   },
 
+  metaInfo () {
+    return {
+      title: this.track.name
+    }
+  },
+
   created () {
     const id = this.$route.params.id
 
-    TrackServices.getById(id)
-      .then(res => {
-        console.log(res)
-        this.track = res
-      })
+    TrackServices.getById(id).then(res => {
+      // console.log(res)
+      this.track = res
+    })
   }
 }
 </script>

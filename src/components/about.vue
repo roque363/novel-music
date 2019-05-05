@@ -17,6 +17,15 @@
         img(src="https://roque363.github.io/novel-music/src/assets/img/Nove@1x.jpg" alt="roque363 - logo")
 </template>
 
+<script>
+export default {
+  name: 'About',
+  metaInfo: {
+    title: 'Información'
+  }
+}
+</script>
+
 <style lang="scss" scoped>
   .container {
     padding-left: 10px;

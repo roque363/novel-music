@@ -55,7 +55,13 @@ import NmLoader from '@/components/shared/Loader.vue'
 import NmNotification from '@/components/shared/Notification.vue'
 
 export default {
-  name: 'app',
+  name: 'search',
+
+  metaInfo () {
+    return {
+      title: 'Búsqueda y reproducción de canciones'
+    }
+  },
 
   components: { NmTrack, NmLoader, NmNotification },
 

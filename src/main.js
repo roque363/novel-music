@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 import VueRouter from 'vue-router'
+import VueMeta from 'vue-meta'
 import App from '@/App.vue'
 
 import msToMm from '@/filters/ms-to-mm'
@@ -12,6 +13,9 @@ import routes from '@/routes'
 
 import EventBus from '@/plugins/event-bus'
 
+Vue.use(VueMeta, {
+  refreshOnceOnNavigation: true
+})
 Vue.use(Buefy)
 Vue.use(VueRouter)
 Vue.use(EventBus)
