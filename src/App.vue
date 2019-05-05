@@ -19,7 +19,10 @@ export default {
     titleTemplate: '%s | Novel Music',
     htmlAttrs: {
       lang: 'es'
-    }
+    },
+    meta: [
+      { vmid: 'description', name: 'description', content: 'Página Web para la búsqueda y reproducción de canciones, mediante el uso de la api de Spotify. Aplicación realizada con Vuejs.' }
+    ]
   }
 }
 </script>

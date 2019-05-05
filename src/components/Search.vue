@@ -59,7 +59,16 @@ export default {
 
   metaInfo () {
     return {
-      title: 'Búsqueda y reproducción de canciones'
+      title: 'Búsqueda y reproducción de canciones',
+      meta: [
+        { vmid: 'description', name: 'description', content: 'Página Web para la búsqueda y reproducción de canciones, mediante el uso de la api de Spotify. Aplicación realizada con Vuejs.' },
+        {
+          'property': 'og:title',
+          'content': 'Página Web para la búsqueda y reproducción de canciones, mediante el uso de la api de Spotify.',
+          'template': chunk => `${chunk} | Novel Music`,
+          'vmid': 'og:title'
+        }
+      ]
     }
   },
 

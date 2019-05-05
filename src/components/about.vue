@@ -20,8 +20,13 @@
 <script>
 export default {
   name: 'About',
-  metaInfo: {
-    title: 'Información'
+  metaInfo () {
+    return {
+      title: 'Información',
+      meta: [
+        { vmid: 'description', name: 'description', content: 'Diseñado para el curso de Vue.js, uso de Eslint, Babel, Bulma y Vue-router' }
+      ]
+    }
   }
 }
 </script>

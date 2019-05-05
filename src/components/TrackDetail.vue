@@ -63,7 +63,10 @@ export default {
 
   metaInfo () {
     return {
-      title: this.track.name
+      title: this.track.name,
+      meta: [
+        { vmid: 'description', name: 'description', content: 'Escuchar ' + this.track.name }
+      ]
     }
   },
 
