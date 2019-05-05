@@ -57,15 +57,37 @@ export default {
 
   data () {
     return {
-      track: {}
+      track: {},
+      artist01: ''
     }
   },
 
   metaInfo () {
     return {
-      title: this.track.name,
+      title: this.track.name + ' - ' + this.artist01,
       meta: [
-        { vmid: 'description', name: 'description', content: 'Escuchar ' + this.track.name }
+        { vmid: 'description', name: 'description', content: 'Escuchar ' + this.track.name + ' - ' + this.artist01 },
+        {
+          'property': 'og:title',
+          'content': this.track.name,
+          'template': chunk => `${chunk} | Novel Music`,
+          'vmid': 'og:title'
+        },
+        {
+          'property': 'og:url',
+          'content': 'https://roque363.github.io/novel-music/track/',
+          'vmid': 'og:url'
+        },
+        {
+          'property': 'og:site_name',
+          'content': 'Novel Music',
+          'vmid': 'og:site_name'
+        },
+        {
+          'property': 'og:description',
+          'content': 'Escuchar demo de ' + this.track.name + ' de ' + this.artist01,
+          'vmid': 'og:description'
+        }
       ]
     }
   },
@@ -74,8 +96,10 @@ export default {
     const id = this.$route.params.id
 
     TrackServices.getById(id).then(res => {
-      // console.log(res)
+      // Obtener todos los datos de la cancion
       this.track = res
+      // Obtener el Nombre del Artista
+      this.artist01 = res.artists[0].name
     })
   }
 }

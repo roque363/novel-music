@@ -16,7 +16,7 @@ export default {
   components: { NmFooter, NmHeader },
   metaInfo: {
     title: 'Búsqueda y reproducción de canciones',
-    titleTemplate: '%s | Novel Music',
+    titleTemplate: '%s | Escuchar en Novel Music',
     htmlAttrs: {
       lang: 'es'
     },

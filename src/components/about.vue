@@ -24,7 +24,28 @@ export default {
     return {
       title: 'Información',
       meta: [
-        { vmid: 'description', name: 'description', content: 'Diseñado para el curso de Vue.js, uso de Eslint, Babel, Bulma y Vue-router' }
+        { vmid: 'description', name: 'description', content: 'Diseñado para el curso de Vue.js, uso de Eslint, Babel, Bulma y Vue-router.' },
+        {
+          'property': 'og:title',
+          'content': 'Información',
+          'template': chunk => `${chunk} | Novel Music`,
+          'vmid': 'og:title'
+        },
+        {
+          'property': 'og:url',
+          'content': 'https://roque363.github.io/novel-music/about',
+          'vmid': 'og:url'
+        },
+        {
+          'property': 'og:site_name',
+          'content': 'Novel Music',
+          'vmid': 'og:site_name'
+        },
+        {
+          'property': 'og:description',
+          'content': 'Diseñado para el curso de Vue.js, uso de Eslint, Babel, Bulma y Vue-router. Para más información de como realizo esta pagina pueden revisar el repositorio de GitHub.',
+          'vmid': 'og:description'
+        }
       ]
     }
   }
