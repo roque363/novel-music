@@ -25,7 +25,7 @@
                   i.fas.fa-play
                 span Demo
               |
-              b-tooltip(label="Detalles de la canción", position="is-right")
+              b-tooltip(label="Detalles de la canción", position="is-bottom")
                 a.level-item.button.is-warning(v-on:click="goToTrack(track.id)")
                   span.icon
                     i.fas.fa-info

@@ -37,12 +37,12 @@
       // END CARDS
       //- ⚠️ Se añade la Paginacion
       .columns(v-show="tracks.length && !pagination.hasEnd")
-      .column.has-text-centered
-        a.button.is-light.is-rounded(
-          @click="loadNextPage()",
-          :class="{ 'is-loading': pagination.isLoading }",
-          :disabled="pagination.isLoading"
-        ) Mostrar más
+        .column.has-text-centered
+          a.button.is-light.is-rounded(
+            @click="loadNextPage()",
+            :class="{ 'is-loading': pagination.isLoading }",
+            :disabled="pagination.isLoading"
+          ) Mostrar más
     |
 </template>
 
@@ -140,7 +140,6 @@ export default {
             duration: 4000,
             message: 'Se produjo un error inesperado...',
             type: 'is-danger',
-            position: 'is-bottom-left',
             actionText: 'Ok',
             indefinite: false
           })
@@ -198,22 +197,18 @@ export default {
 
 <style lang="scss" scoped>
   .section {
-    margin-left: 8px;
-    margin-right: 8px;
+    margin: 0;
   }
   .is-active {
       border: 3px #23d160 solid;
   }
-
   .results {
     margin-top: 20px
   }
-
   small, .noti {
     color: whitesmoke;
   }
-
-  .search-message{
+  .search-message {
     font-weight: 500;
     margin-left: 10px;
   }
