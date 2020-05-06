@@ -1,35 +1,35 @@
 <template lang="pug">
-  .card.radius(v-if="track && track.album")
-    .card-image
-      figure.image
-        img(v-bind:src="track.album.images[0].url", alt="Music album")
-    .card-content
-      .media
-        .media-left
-          .figure.image.is-64x64
-            img(v-bind:src="track.album.images[1].url", alt="Music album")
-        .media-content
-          p.title.is-5.cortar
-            strong {{ track.name }}
-          p.subtitle.is-6 {{ track.artists[0].name}}
-      .content
-        .detail
-          small Duración: {{ track.duration_ms | ms-to-mm }}
-          span.tag.is-danger(v-if="track.explicit === true")
-            | Contenido explícito
-        nav.level
-          .level-left
-            .buttons
-              a.level-item.button.is-link(@click="selectedTrack")
+.card.radius(v-if="track && track.album")
+  .card-image
+    figure.image
+      img(v-bind:src="track.album.images[0].url", alt="Music album")
+  .card-content
+    .media
+      .media-left
+        .figure.image.is-64x64
+          img(v-bind:src="track.album.images[1].url", alt="Music album")
+      .media-content
+        p.title.is-5.cortar
+          strong {{ track.name }}
+        p.subtitle.is-6 {{ track.artists[0].name}}
+    .content
+      .detail
+        small Duración: {{ track.duration_ms | ms-to-mm }}
+        span.tag.is-danger(v-if="track.explicit === true")
+          | Contenido explícito
+      nav.level
+        .level-left
+          .buttons
+            a.level-item.button.is-link(@click="selectedTrack")
+              span.icon
+                i.fas.fa-play
+              span Demo
+            |
+            b-tooltip(label="Detalles de la canción", position="is-bottom")
+              a.level-item.button.is-warning(v-on:click="goToTrack(track.id)")
                 span.icon
-                  i.fas.fa-play
-                span Demo
-              |
-              b-tooltip(label="Detalles de la canción", position="is-bottom")
-                a.level-item.button.is-warning(v-on:click="goToTrack(track.id)")
-                  span.icon
-                    i.fas.fa-info
-                  span Info
+                  i.fas.fa-info
+                span Info
 </template>
 
 <script>

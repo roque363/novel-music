@@ -1,49 +1,49 @@
 <template lang="pug">
-  main
-    //- ⚠️ Notificacion Antigua
-    // transition(name="move")
-      nm-notification(v-show="showNotification", v-bind:isClass="notificationClass")
-        p.noti(slot="body") {{ notification }}
-    transition(name="move")
-      nm-loader(v-show="isLoading")
-    |
-    section.section(v-show="!isLoading")
-      // START SEARCH
-      .box
-        .field.has-addons
-          .control.is-expanded
-              b-input.has-text-centered(
-                size="is-medium",
-                type="search",
-                placeholder="Buscar Canciones...",
-                icon-pack='fas',
-                icon="search",
-                v-model="searchQuery",
-                v-on:keyup.enter.native="search"
-              )
-          .control
-            a.button.is-info.is-medium(v-on:click="search") Buscar
-      // END SEARCH
-      small.search-message {{ searchMessage }}
-      // START CARDS
-      .row.columns.is-multiline.results
-        .column.is-one-quarter-desktop.is-half-tablet.is-one-quarter-fullhd(v-for="t in tracks")
-          nm-track(
-            v-blur="t.preview_url"
-            v-bind:class="{ 'is-active': t.id == selectedTrack }",
-            v-bind:track="t",
-            v-on:select="setSelectedTrack"
-          )
-      // END CARDS
-      //- ⚠️ Se añade la Paginacion
-      .columns(v-show="tracks.length && !pagination.hasEnd")
-        .column.has-text-centered
-          a.button.is-light.is-rounded(
-            @click="loadNextPage()",
-            :class="{ 'is-loading': pagination.isLoading }",
-            :disabled="pagination.isLoading"
-          ) Mostrar más
-    |
+main
+  //- ⚠️ Notificacion Antigua
+  // transition(name="move")
+    nm-notification(v-show="showNotification", v-bind:isClass="notificationClass")
+      p.noti(slot="body") {{ notification }}
+  transition(name="move")
+    nm-loader(v-show="isLoading")
+  |
+  section.section(v-show="!isLoading")
+    // START SEARCH
+    .box
+      .field.has-addons
+        .control.is-expanded
+            b-input.has-text-centered(
+              size="is-medium",
+              type="search",
+              placeholder="Buscar Canciones...",
+              icon-pack='fas',
+              icon="search",
+              v-model="searchQuery",
+              v-on:keyup.enter.native="search"
+            )
+        .control
+          a.button.is-info.is-medium(v-on:click="search") Buscar
+    // END SEARCH
+    small.search-message {{ searchMessage }}
+    // START CARDS
+    .row.columns.is-multiline.results
+      .column.is-one-quarter-desktop.is-half-tablet.is-one-quarter-fullhd(v-for="t in tracks")
+        nm-track(
+          v-blur="t.preview_url"
+          v-bind:class="{ 'is-active': t.id == selectedTrack }",
+          v-bind:track="t",
+          v-on:select="setSelectedTrack"
+        )
+    // END CARDS
+    //- ⚠️ Se añade la Paginacion
+    .columns(v-show="tracks.length && !pagination.hasEnd")
+      .column.has-text-centered
+        a.button.is-light.is-rounded(
+          @click="loadNextPage()",
+          :class="{ 'is-loading': pagination.isLoading }",
+          :disabled="pagination.isLoading"
+        ) Mostrar más
+  |
 </template>
 
 <script>

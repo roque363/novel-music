@@ -1,9 +1,9 @@
 <template lang="pug">
-  .container
-    .columns
-      .column.is-5.is-offset-4
-        .notification(:class="isClass")
-          slot(name="body") Algo anduvo mal
+.container
+  .columns
+    .column.is-5.is-offset-4
+      .notification(:class="isClass")
+        slot(name="body") Algo anduvo mal
 </template>
 
 <script>

@@ -1,13 +1,13 @@
 <template lang="pug">
-  .content(v-if="track && track.album")
-    .row.columns.is-mobile
-      .column.is-narrow
-        figure.image.is-96x96
-          img.logo(v-bind:src="track.album.images[1].url")
-      .column.description
-        a.song.cortar {{ track.name }}
-        a.artist {{ track.artists[0].name}}
-        audio(controls, v-bind:src="track.preview_url")
+.content(v-if="track && track.album")
+  .row.columns.is-mobile
+    .column.is-narrow
+      figure.image.is-96x96
+        img.logo(v-bind:src="track.album.images[1].url")
+    .column.description
+      a.song.cortar {{ track.name }}
+      a.artist {{ track.artists[0].name}}
+      audio(controls, v-bind:src="track.preview_url")
 </template>
 
 <script>

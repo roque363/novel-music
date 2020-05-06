@@ -1,10 +1,10 @@
 <template lang="pug">
-  #app.contenido
-    nm-header
-    |
-    router-view
-    |
-    nm-footer
+#app.contenido
+  nm-header
+  |
+  router-view
+  |
+  nm-footer
 </template>
 
 <script>
