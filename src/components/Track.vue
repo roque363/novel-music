@@ -35,7 +35,7 @@
 <script>
 import trackMixin from '@/mixins/track'
 
-import NmTag from '@/components/shared/Tag.vue'
+import NmTag from '@/components/Tag.vue'
 
 export default {
   mixins: [ trackMixin ],

@@ -1,15 +1,21 @@
-import Search from '@/components/Search.vue'
-import About from '@/components/About.vue'
-import TrackDetail from '@/components/TrackDetail.vue'
-import PageNotFound from '@/components/PageNotFound.vue'
+import Search from './views/Search.vue';
+import About from './views/About.vue';
+import TrackDetail from './views/TrackDetail.vue';
+import NotFound from './views/NotFound.vue';
 
 // ⚠️ Cambiar la rutas dependiendo si es para desarrolo o para produccion
-const routes = [
-  { path: '/novel-music/', component: Search, name: 'search' },
-  { path: '/novel-music/about', component: About, name: 'about' },
-  { path: '/novel-music/track/:id/:slug', component: TrackDetail, name: 'track' },
-  { path: '/novel-music/404', component: PageNotFound },
-  { path: '/novel-music/*', redirect: '/novel-music/404' }
-]
+const BASE_ROUTE = '/novel-music';
 
-export default routes
+const routes = [
+  { path: BASE_ROUTE + '/', component: Search, name: 'search' },
+  { path: BASE_ROUTE + '/about', component: About, name: 'about' },
+  {
+    path: BASE_ROUTE + '/track/:id/:slug',
+    component: TrackDetail,
+    name: 'track',
+  },
+  { path: BASE_ROUTE + '/404', component: NotFound },
+  { path: BASE_ROUTE + '/*', redirect: BASE_ROUTE + '/404' },
+];
+
+export default routes;

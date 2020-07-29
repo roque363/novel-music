@@ -1,18 +1,17 @@
 <template lang="pug">
-main
-  //- ⚠️ Notificacion Antigua
-  // transition(name="move")
-    nm-notification(v-show="showNotification", v-bind:isClass="notificationClass")
-      p.noti(slot="body") {{ notification }}
-  transition(name="move")
-    nm-loader(v-show="isLoading")
-  |
-  section.section(v-show="!isLoading")
-    // START SEARCH
-    .box
-      .field.has-addons
-        .control.is-expanded
-            b-input.has-text-centered(
+  main
+    //- ⚠️ Notificacion Antigua
+    // transition(name="move")
+      nm-notification(v-show="showNotification", v-bind:isClass="notificationClass")
+        p.noti(slot="body") {{ notification }}
+    transition(name="move")
+      nm-loader(v-show="isLoading")
+    section.section(v-show="!isLoading")
+      // START SEARCH
+      .novel-search
+        .field.has-addons
+          .control.is-expanded
+            b-input.has-text-centered.novel-search__input(
               size="is-medium",
               type="search",
               placeholder="Buscar Canciones...",
@@ -21,41 +20,42 @@ main
               v-model="searchQuery",
               v-on:keyup.enter.native="search"
             )
-        .control
-          a.button.is-info.is-medium(v-on:click="search") Buscar
-    // END SEARCH
-    small.search-message {{ searchMessage }}
-    // START CARDS
-    .row.columns.is-multiline.results
-      .column.is-one-quarter-desktop.is-half-tablet.is-one-quarter-fullhd(v-for="t in tracks")
-        nm-track(
-          v-blur="t.preview_url"
-          v-bind:class="{ 'is-active': t.id == selectedTrack }",
-          v-bind:track="t",
-          v-on:select="setSelectedTrack"
-        )
-    // END CARDS
-    //- ⚠️ Se añade la Paginacion
-    .columns(v-show="tracks.length && !pagination.hasEnd")
-      .column.has-text-centered
-        a.button.is-light.is-rounded(
-          @click="loadNextPage()",
-          :class="{ 'is-loading': pagination.isLoading }",
-          :disabled="pagination.isLoading"
-        ) Mostrar más
-  |
+          .control
+            a.button.is-link.is-medium(v-on:click="search") Buscar
+      // END SEARCH
+      small.search-message {{ searchMessage }}
+      // START CARDS
+      .row.columns.is-multiline.results
+        .column.is-one-quarter-desktop.is-half-tablet.is-one-quarter-fullhd(v-for="t in tracks")
+          nm-track(
+            v-blur="t.preview_url"
+            v-bind:class="{ 'is-active': t.id == selectedTrack }",
+            v-bind:track="t",
+            v-on:select="setSelectedTrack"
+          )
+      // END CARDS
+      //- ⚠️ Se añade la Paginacion
+      .columns(v-show="tracks.length && !pagination.hasEnd")
+        .column.has-text-centered
+          a.button.is-light.is-rounded(
+            @click="loadNextPage()",
+            :class="{ 'is-loading': pagination.isLoading }",
+            :disabled="pagination.isLoading"
+          ) Mostrar más
 </template>
 
 <script>
+// Services
 import trackService from '@/services/track.js'
-
+// Component
+import NmLoader from '@/components/Loader.vue'
+import NmNotification from '@/components/Notification.vue'
 import NmTrack from '@/components/Track.vue'
-
-import NmLoader from '@/components/shared/Loader.vue'
-import NmNotification from '@/components/shared/Notification.vue'
 
 export default {
   name: 'search',
+
+  components: { NmLoader, NmTrack, NmNotification },
 
   metaInfo () {
     return {
@@ -86,8 +86,6 @@ export default {
       ]
     }
   },
-
-  components: { NmTrack, NmLoader, NmNotification },
 
   data () {
     return {
@@ -156,7 +154,7 @@ export default {
   },
 
   methods: {
-    search (shouldConcat = false) {
+    search () {
       if (!this.searchQuery) { return }
       this.isLoading = true
 
@@ -174,7 +172,6 @@ export default {
 
     loadNextPage () {
       if (!this.searchQuery) { return }
-
       this.pagination.isLoading = true
 
       trackService.search(this.searchQuery, this.pagination.offset)
@@ -198,6 +195,7 @@ export default {
 <style lang="scss" scoped>
   .section {
     margin: 0;
+    padding: 2rem 1.5rem;
   }
   .is-active {
       border: 3px #23d160 solid;
@@ -208,8 +206,21 @@ export default {
   small, .noti {
     color: whitesmoke;
   }
+  .novel-search {
+    margin-bottom: 0.625rem;
+    padding: 0.75rem;
+    color: #4a4a4a;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    &__input {
+      border-bottom-left-radius: 6px;
+      border-top-left-radius: 6px;
+    }
+  }
   .search-message {
     font-weight: 500;
-    margin-left: 10px;
+    margin-left: 0.5rem;
   }
 </style>

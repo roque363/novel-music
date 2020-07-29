@@ -1,19 +1,17 @@
 <template lang="pug">
-#app.contenido
-  nm-header
-  |
-  router-view
-  |
-  nm-footer
+  #app.nm-root
+    nm-header
+    router-view.nm-layout
+    nm-footer
 </template>
 
 <script>
-import NmFooter from '@/components/layout/Footer.vue'
 import NmHeader from '@/components/layout/Header.vue'
+import NmFooter from '@/components/layout/Footer.vue'
 
 export default {
   name: 'app',
-  components: { NmFooter, NmHeader },
+  components: { NmHeader, NmFooter },
   metaInfo: {
     title: 'Búsqueda y reproducción de canciones',
     titleTemplate: '%s | Escuchar en Novel Music',
@@ -26,7 +24,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import './scss/main.scss';
-</style>

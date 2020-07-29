@@ -1,18 +1,30 @@
-import novelMusicService from './novel-music'
+/* eslint-disable no-console */
+import config from './config';
 
-const trackService = {}
+const baseUrl = config.apiUrl;
+const trackService = {};
 
-trackService.search = function (q, offset = 0) {
-  const type = 'track'
+trackService.search = async function(q, offset = 0) {
+  const type = 'track';
+  return fetch(`${baseUrl}/search?q=${q}&type=${type}&offset=${offset}`)
+    .then(res => res.json())
+    .catch(error => {
+      return error;
+    })
+    .then(res => {
+      return res;
+    });
+};
 
-  return novelMusicService.get('/search', {
-    params: { q, type, offset }
-  }).then(res => res.data)
-}
+trackService.getById = async function(id) {
+  return fetch(`${baseUrl}/tracks/${id}`)
+    .then(res => res.json())
+    .catch(error => {
+      return error;
+    })
+    .then(res => {
+      return res;
+    });
+};
 
-trackService.getById = function (id) {
-  return novelMusicService.get(`/tracks/${id}`)
-    .then(res => res.data)
-}
-
-export default trackService
+export default trackService;

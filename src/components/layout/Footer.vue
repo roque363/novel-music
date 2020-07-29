@@ -14,7 +14,8 @@ footer.footer
 
 <style lang="scss" scoped>
   .footer {
-    padding-bottom: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     a {
       color: black;
     }
