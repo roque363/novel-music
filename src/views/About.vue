@@ -15,7 +15,7 @@ div
           | Para más información de como realizo esta pagina pueden revisar el repositorio de
           a.repo(href="https://github.com/roque363/novel-music")  GitHub
           | .
-        img(src="https://roque363.github.io/novel-music/src/assets/images/Nove@1x.jpg" alt="roque363 - logo")
+        img(:src="require(`@/assets/images/Nove@1x.jpg`)" alt="roque363 - logo")
 </template>
 
 <script>

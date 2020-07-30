@@ -14,7 +14,7 @@ const routes = [
     name: 'track',
   },
   { path: BASE_RUTE + '/404', component: NotFound },
-  { path: '/*', redirect: BASE_RUTE + '/404' },
+  { path: BASE_RUTE + '/*', redirect: BASE_RUTE + '/404' },
 ];
 
 export default routes;
