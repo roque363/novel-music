@@ -17,6 +17,6 @@ git add -A
 git commit -m ':rocket: Deploy'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:roque363/novel-music.git master:gh-pages
+git push -f https://github.com/roque363/novel-music.git master:gh-pages
 
 cd -
