@@ -1,0 +1,17 @@
+{
+  "name": "Novel Music",
+  "short_name": "Novel Music",
+  "description": "Página Web para la búsqueda y reproducción de canciones, mediante el uso de la api de Spotify.",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#fff",
+  "background_color": "#fff",
+  "icons": [
+    {
+      "src": "./src/assets/images/homescreen192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
