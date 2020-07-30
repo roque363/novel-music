@@ -1,16 +1,17 @@
 # Novel Music
 
 App Diseñada para el curso de Vue.js de Platzi
-![](https://raw.githubusercontent.com/roque363/novel-music/master/src/assets/img/Banner_Novel_Music.png)
+![](https://raw.githubusercontent.com/roque363/novel-music/master/src/assets/images/Banner_Novel_Music.png)
 
 ## Getting Started
+
 Para poder ejecutar el proyecto en local
 
 ### Cambio de las rutas
 
 Editar el archivo **src/routes.js**
 
-``` bash
+```bash
 # Cambiar la rutas dependiendo si es para desarrolo o para produccion
 const routes = [
   { path: '/', component: Search, name: 'search' },
@@ -23,7 +24,7 @@ const routes = [
 
 Editar el arnchivo **index.html**
 
-``` bash
+```bash
   ...
   <title>Novel Music</title>
   <link rel="shortcut icon" href="/src/assets/logo-icon.png" type="image/x-icon">
@@ -38,7 +39,7 @@ Editar el arnchivo **index.html**
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -55,7 +56,7 @@ npm run build
 
 ESLint Config for JavaScript Standard Style, consultar en [docs for eslint-config-standard](https://github.com/standard/eslint-config-standard).
 
-``` bash
+```bash
 # Install Eslint
 npm i -D eslint
 
@@ -69,21 +70,24 @@ npm i -D eslint-loader
 ### Pug
 
 **PUG** nos permite crear **HTML** con otro tipo de sintaxis, escribiendo menos código, y a través de webpack compilarlo para que funcione en el navegador.
-``` bash
+
+```bash
 npm i -D pug pug-loader
 ```
 
 ### Bulma
 
 Framework de css
-``` bash
+
+```bash
 npm i -S bulma
 ```
 
 ### Vue-Router
 
 Permite trabajar con rutas anidadas, es modular, permite crear rutas con parametros y permite aplicar transiciones a las rutas
-``` bash 
+
+```bash
 # Install vue-loader
 npm i -S vue-router
 
@@ -94,7 +98,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 ## Authors
 
-* **Roque Alarcon** - *Initial work* - [Roque363](https://github.com/roque363)
+- **Roque Alarcon** - _Initial work_ - [Roque363](https://github.com/roque363)
 
 ## Acknowledgments
 
