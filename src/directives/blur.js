@@ -4,7 +4,7 @@ function setBlur(el, binding) {
   el.style.filter = !binding.value ? 'blur(3px)' : 'none';
   el.style.cursor = !binding.value ? 'not-allowed' : 'inherit';
 
-  el.querySelectorAll('button').forEach(a => {
+  el.querySelectorAll('button').forEach((a) => {
     if (!binding.value) {
       a.setAttribute('disable', true);
     } else {
@@ -13,7 +13,7 @@ function setBlur(el, binding) {
   });
 }
 
-blur.install = function(Vue) {
+blur.install = function (Vue) {
   Vue.directive('blur', {
     bind(el, binding) {
       setBlur(el, binding);

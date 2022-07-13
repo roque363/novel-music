@@ -1,75 +1,53 @@
-<template lang="pug">
-div
-  .container.has-text-centered
-    .box
-      .column.is-half.is-offset-one-quarter
-        h1.title
-          strong Hola
-          i.em.em-spock-hand
-        h3.has-text-justified Soy
-          strong  Roque Alarcon
-          |  desarrolle esta Página Web para la búsqueda y reproducción de canciones, mediante el uso de la api de Spotify.
-          br
-          | La diseñe como parte del curso de Vue.js de Platzi. Se uso Eslint, Babel, Bulma, Pug y Vue-router.
-          br
-          | Para más información de como realizo esta pagina pueden revisar el repositorio de
-          a.repo(href="https://github.com/roque363/novel-music")  GitHub
-          | .
-        img(:src="require(`@/assets/images/Nove@1x.jpg`)" alt="roque363 - logo")
+<template>
+  <div>
+    <div class="container has-text-centered">
+      <div class="box">
+        <div class="column is-half is-offset-one-quarter">
+          <h1 class="title"><strong>Hola</strong><i class="em em-spock-hand"></i></h1>
+          <h3 class="has-text-justified">
+            Soy<strong> Roque Alarcon</strong> desarrolle esta Página Web para la búsqueda y
+            reproducción de canciones, mediante el uso de la api de Spotify.<br />La diseñe como
+            parte del curso de Vue.js de Platzi. Se uso Eslint, Babel, Bulma, Pug y
+            Vue-router.<br />Para más información de como realizo esta pagina pueden revisar el
+            repositorio de<a class="repo" href="https://github.com/roque363/novel-music">
+              GitHub</a
+            >.
+          </h3>
+          <img :src="require(`@/assets/images/Nove@1x.jpg`)" alt="roque363 - logo" />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'About',
+  name: 'ViewAbout',
 
-  metaInfo () {
+  metaInfo() {
     return {
       title: 'Información',
-      meta: [
-        { vmid: 'description', name: 'description', content: 'Diseñado para el curso de Vue.js, uso de Eslint, Babel, Bulma y Vue-router.' },
-        {
-          'property': 'og:title',
-          'content': 'Información',
-          'template': chunk => `${chunk} | Novel Music`,
-          'vmid': 'og:title'
-        },
-        {
-          'property': 'og:url',
-          'content': 'https://roque363.github.io/novel-music/about',
-          'vmid': 'og:url'
-        },
-        {
-          'property': 'og:site_name',
-          'content': 'Novel Music',
-          'vmid': 'og:site_name'
-        },
-        {
-          'property': 'og:description',
-          'content': 'Diseñado para el curso de Vue.js, uso de Eslint, Babel, Bulma y Vue-router. Para más información de como realizo esta pagina pueden revisar el repositorio de GitHub.',
-          'vmid': 'og:description'
-        }
-      ]
-    }
-  }
-}
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .container {
-    padding: 2rem 1rem;
-  }
+.container {
+  padding: 2rem 1rem;
+}
 
-  .repo {
-    font-weight: 600;
-  }
+.repo {
+  font-weight: 600;
+}
 
-  h3 {
-    font-size: 22px;
-    margin-bottom: 1.5rem;
-  }
+h3 {
+  font-size: 22px;
+  margin-bottom: 1.5rem;
+}
 
-  .em-male-student {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+.em-male-student {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 </style>

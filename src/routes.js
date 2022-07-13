@@ -1,6 +1,6 @@
 import Search from './views/Search.vue';
 import About from './views/About.vue';
-import TrackDetail from './views/TrackDetail.vue';
+// import TrackDetail from './views/TrackDetail.vue';
 import NotFound from './views/NotFound.vue';
 
 const BASE_RUTE = '/novel-music';
@@ -10,7 +10,7 @@ const routes = [
   { path: BASE_RUTE + '/about', component: About, name: 'about' },
   {
     path: BASE_RUTE + '/track/:id/:slug',
-    component: TrackDetail,
+    component: Search,
     name: 'track',
   },
   { path: BASE_RUTE + '/404', component: NotFound },

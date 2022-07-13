@@ -1,3 +1,5 @@
+import useEventsBus from '@/plugins/event-bus';
+
 const trackMixin = {
   methods: {
     selectedTrack() {
@@ -6,7 +8,9 @@ const trackMixin = {
       }
 
       this.$emit('select', this.track.id);
-      this.$bus.$emit('set-track', this.track);
+
+      const { emit } = useEventsBus();
+      emit('set-track', this.track);
     },
   },
 };

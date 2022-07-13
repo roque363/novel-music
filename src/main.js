@@ -1,32 +1,25 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import 'bulma/css/bulma.css';
+
 import App from './App.vue';
-import VueMeta from 'vue-meta';
-import VueRouter from 'vue-router';
-import Buefy from 'buefy';
-import 'buefy/dist/buefy.css';
-import './assets/scss/main.scss';
-import routes from './routes';
-// Filters
-import msToMm from '@/filters/ms-to-mm';
-// Directives
 import blur from '@/directives/blur';
-// Plugins
-import EventBus from '@/plugins/event-bus';
+import msToMm from '@/filters/ms-to-mm';
+// import EventBus from '@/plugins/event-bus';
+import routes from './routes';
+import './assets/scss/main.scss';
 
-Vue.config.productionTip = false;
+const app = createApp(App);
 
-Vue.use(VueMeta, {
-  refreshOnceOnNavigation: true,
+app.use(blur);
+app.use(msToMm);
+// app.use(EventBus);
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
 });
-Vue.use(Buefy);
-Vue.use(VueRouter);
-Vue.use(msToMm);
-Vue.use(blur);
-Vue.use(EventBus);
 
-const router = new VueRouter({ routes, mode: 'history' });
+app.use(router);
 
-new Vue({
-  render: h => h(App),
-  router,
-}).$mount('#app');
+app.mount('#app');

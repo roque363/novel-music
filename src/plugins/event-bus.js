@@ -1,7 +1,14 @@
-const eventBus = {};
+import { ref } from 'vue';
 
-eventBus.install = function(Vue) {
-  Vue.prototype.$bus = new Vue();
-};
+const bus = ref(new Map());
 
-export default eventBus;
+export default function useEventsBus() {
+  function emit(event, ...args) {
+    bus.value.set(event, args);
+  }
+
+  return {
+    emit,
+    bus,
+  };
+}
