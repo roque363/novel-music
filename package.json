@@ -1,7 +1,10 @@
 {
   "name": "novel-music",
-  "version": "3.0.0",
   "author": "roque363",
+  "version": "3.0.0",
+  "engines": {
+    "node": "18.x"
+  },
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
